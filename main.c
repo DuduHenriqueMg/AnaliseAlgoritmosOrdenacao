@@ -31,18 +31,16 @@ void medidaDeTempoFuncao(const char *funcao, int *vetor, int n)
     mergeSort(vetor_tmp, n);
     printf("\n\nVetor ordenado com MergeSort\n");
   }
-  
+
+  clock_t fim = clock();
+  double elapsed_ms = (double)(fim - inicio) * 1000.0 / CLOCKS_PER_SEC;
+  printf("%s: Tempo decorrido: %8.3f ms\n", funcao, elapsed_ms);
 
   printf("\nVetor depois da ordenação (10 primeiros elementos): \n");
   for (int i = 0; i < 10; i++)
   {
     printf("[%d] ", vetor_tmp[i]);
   }
-  
-  clock_t fim = clock();
-  double elapsed_ms = (double)(fim - inicio) * 1000.0 / CLOCKS_PER_SEC;
-  printf("\n%s: Tempo decorrido: %8.3f ms\n", funcao, elapsed_ms);
-  
 }
 
 void troca(int *vetor, int valor1, int valor2)
