@@ -182,12 +182,9 @@ int main()
     int n = sizes[i];
     printf("\n=== Vetor de %d elementos ===\n", n);
 
-    // aloca e preenche o vetor
     int *vetor_random = malloc(n * sizeof(int));
     vetorAleatorio(vetor_random, n);
 
-
-    // executa os três algoritmos
     medida_de_tempo_funcao("BubbleSort", vetor_random, n);
     medida_de_tempo_funcao("QuickSort",  vetor_random, n);
     medida_de_tempo_funcao("MergeSort",  vetor_random, n);
