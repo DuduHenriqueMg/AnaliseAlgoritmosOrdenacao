@@ -37,7 +37,8 @@ Este relatório apresenta o desempenho de três algoritmos de ordenação cláss
 
 ## 4. Gráfico de Desempenho
 
-![Gráfico Desempenho](grafico.png)
+![Gráfico de Desempenho](graficos.png)
+
 
 ## 5. Discussão
 - **bubbleSort** cresce de forma quadrática e fica proibitivo para N grandes.  
