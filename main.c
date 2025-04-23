@@ -112,7 +112,8 @@ void mergeSort(int *vetor, int tamanho)
   }
 }
 
-void vetorAleatorio(int arr[], int n) {
+void vetorAleatorio(int arr[], int n) 
+{
   for(int i = 0; i < n; i++)
     arr[i] = rand() % 20000;
 }
@@ -150,7 +151,6 @@ void medidaDeTempoFuncao(const char *funcao, int *vetor, int n)
   }
 }
 
-
 int main()
 {
   srand((unsigned) time(NULL));
@@ -172,7 +172,8 @@ int main()
   int sizes[] = {100, 300, 500, 1000, 10000};
   int num_sizes = sizeof(sizes) / sizeof(sizes[0]);
 
-  for (int i = 0; i < num_sizes; i++) {
+  for (int i = 0; i < num_sizes; i++) 
+  {
     int n = sizes[i];
     printf("\n\n=== Vetor de %d elementos ===\n", n);
 
@@ -190,7 +191,7 @@ int main()
     medidaDeTempoFuncao("MergeSort",  vetor_random, n);
 
     free(vetor_random);
-}
+  }
 
   return 0;
 }
