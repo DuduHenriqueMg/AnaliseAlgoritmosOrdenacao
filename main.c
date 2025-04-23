@@ -2,14 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-double time1, timedif;
-
 void vetorAleatorio(int arr[], int n) {
   for(int i = 0; i < n; i++)
       arr[i] = rand() % 20000;
 }
 
-void medida_de_tempo_funcao(const char *funcao, int *vetor, int n)
+void medidaDeTempoFuncao(const char *funcao, int *vetor, int n)
 {
   int i;
 
@@ -171,9 +169,9 @@ int main()
     printf("[%d] ", vetor[i]);
   }
 
-  medida_de_tempo_funcao("BubbleSort", vetor, 10);
-  medida_de_tempo_funcao("QuickSort", vetor, 10);
-  medida_de_tempo_funcao("MergeSort", vetor, 10);
+  medidaDeTempoFuncao("BubbleSort", vetor, 10);
+  medidaDeTempoFuncao("QuickSort", vetor, 10);
+  medidaDeTempoFuncao("MergeSort", vetor, 10);
 
   int sizes[] = {100, 300, 500, 1000, 10000};
   int num_sizes = sizeof(sizes) / sizeof(sizes[0]);
@@ -185,9 +183,9 @@ int main()
     int *vetor_random = malloc(n * sizeof(int));
     vetorAleatorio(vetor_random, n);
 
-    medida_de_tempo_funcao("BubbleSort", vetor_random, n);
-    medida_de_tempo_funcao("QuickSort",  vetor_random, n);
-    medida_de_tempo_funcao("MergeSort",  vetor_random, n);
+    medidaDeTempoFuncao("BubbleSort", vetor_random, n);
+    medidaDeTempoFuncao("QuickSort",  vetor_random, n);
+    medidaDeTempoFuncao("MergeSort",  vetor_random, n);
 
     free(vetor_random);
 }
