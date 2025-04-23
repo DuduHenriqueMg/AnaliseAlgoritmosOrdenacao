@@ -112,13 +112,13 @@ void mergeSort(int *vetor, int tamanho)
   }
 }
 
-void vetorAleatorio(int arr[], int n) 
+void popularVetorAleatoriamente(int arr[], int n) 
 {
   for(int i = 0; i < n; i++)
     arr[i] = rand() % 20000;
 }
 
-void medidaDeTempoFuncao(const char *funcao, int *vetor, int n)
+void medirTempoDaOrdenacao(const char *funcao, int *vetor, int n)
 {
   int i;
 
@@ -141,9 +141,9 @@ void medidaDeTempoFuncao(const char *funcao, int *vetor, int n)
   }
   
   clock_t fim = clock();
-  double elapsed_ms = (double)(fim - inicio) * 1000.0 / CLOCKS_PER_SEC;
+  double tempo_decorrido_ms = (double)(fim - inicio) * 1000.0 / CLOCKS_PER_SEC;
 
-  printf("\n\nVetor ordenado com %s - Tempo Decorrido: %8.3f ms\n", funcao, elapsed_ms);
+  printf("\n\nVetor ordenado com %s - Tempo Decorrido: %8.3f ms\n", funcao, tempo_decorrido_ms);
   printf("Vetor depois da ordenação (10 primeiros elementos): \n");
   for (int i = 0; i < 10; i++)
   {
@@ -155,30 +155,31 @@ int main()
 {
   srand((unsigned) time(NULL));
 
-  int vetor[10] = {1, 3, 2, 8, 3, 4, 6, 5, 9, 10};
+  int vetor_inicial[10] = {1, 3, 2, 8, 3, 4, 6, 5, 9, 10};
+  int len_vetor_inicial = sizeof(vetor_inicial) / sizeof(int);
   int i = 0;
 
   printf("\n=== Vetor inicial de 10 elementos ===\n");
   printf("\nVetor antes da ordenação:\n");
-  for (int i = 0; i < 10; i++)
+  for (int i = 0; i < len_vetor_inicial; i++)
   {
-    printf("[%d] ", vetor[i]);
+    printf("[%d] ", vetor_inicial[i]);
   }
 
-  medidaDeTempoFuncao("BubbleSort", vetor, 10);
-  medidaDeTempoFuncao("QuickSort", vetor, 10);
-  medidaDeTempoFuncao("MergeSort", vetor, 10);
+  medirTempoDaOrdenacao("BubbleSort", vetor_inicial, len_vetor_inicial);
+  medirTempoDaOrdenacao("QuickSort", vetor_inicial, len_vetor_inicial);
+  medirTempoDaOrdenacao("MergeSort", vetor_inicial, len_vetor_inicial);
 
-  int sizes[] = {100, 300, 500, 1000, 10000};
-  int num_sizes = sizeof(sizes) / sizeof(sizes[0]);
+  int numeros_elementos[] = {100, 300, 500, 1000, 10000};
+  int len_numeros_elementos = sizeof(numeros_elementos) / sizeof(int);
 
-  for (int i = 0; i < num_sizes; i++) 
+  for (int i = 0; i < len_numeros_elementos; i++) 
   {
-    int n = sizes[i];
+    int n = numeros_elementos[i];
     printf("\n\n=== Vetor de %d elementos ===\n", n);
 
     int *vetor_random = malloc(n * sizeof(int));
-    vetorAleatorio(vetor_random, n);
+    popularVetorAleatoriamente(vetor_random, n);
 
     printf("\nVetor antes da ordenação (10 primeiros elementos)\n");
     for (int i = 0; i < 10; i++)
@@ -186,9 +187,9 @@ int main()
       printf("[%d] ", vetor_random[i]);
     }
 
-    medidaDeTempoFuncao("BubbleSort", vetor_random, n);
-    medidaDeTempoFuncao("QuickSort",  vetor_random, n);
-    medidaDeTempoFuncao("MergeSort",  vetor_random, n);
+    medirTempoDaOrdenacao("BubbleSort", vetor_random, n);
+    medirTempoDaOrdenacao("QuickSort",  vetor_random, n);
+    medirTempoDaOrdenacao("MergeSort",  vetor_random, n);
 
     free(vetor_random);
   }
