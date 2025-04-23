@@ -2,10 +2,11 @@
 
 ## 1. Introdução
 Este relatório apresenta o desempenho de três algoritmos de ordenação clássicos
-(bubbleSort, mergeSort e quickSort) para diferentes tamanhos de vetor.
+(bubbleSort, mergeSort e quickSort) implementados na linguagem C para diferentes tamanhos de vetor.
 
 ## 2. Metodologia
 
+- **Linguagem:** C.
 - **Medição de tempo:** Milissegundos.  
 - **Vetores testados:**  
   - **Inicial**: N=10, vetor fixo `{1,3,2,8,3,4,6,5,9,10}`.  
@@ -39,14 +40,13 @@ Este relatório apresenta o desempenho de três algoritmos de ordenação cláss
 
 ![Gráfico de Desempenho](graficos.png)
 
-
 ## 5. Discussão
-- **bubbleSort** cresce de forma quadrática e fica proibitivo para N grandes.  
-- **mergeSort** e **quickSort** mostram crescimento quase linear.  
-- Entre eles, o `quickSort` foi um pouco mais rápido nesse ambiente.
+- **BubbleSort - O(n²)** cresce de forma quadrática e fica proibitivo para N grandes.  
+- **MergeSort** e **QuickSort - O(n log n)** mostram crescimento quase linear.  
+- `QuickSort` e `MergeSort` foram mais rápidos e tiveram tempos de execução bem parecidos.
 
 ## 6. Conclusão
-Conclui-se que, para vetores pequenos (N≤100), a diferença é irrlevante; a partir de N=1000,
-algoritmos de complexidade superior a O(n²) tornam-se menos performáticos. `QuickSort` ou
+Conclui-se que, para vetores pequenos (N≤100), a diferença é irrelevante; a partir de N=1000,
+algoritmos de complexidade superior a O(n²) como o `BubbleSort` tornam-se menos performáticos. `QuickSort` ou
 `MergeSort` são melhores para grandes volumes de dados.
 
